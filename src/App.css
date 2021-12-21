@@ -7,13 +7,43 @@
   pointer-events: none;
 }
 
-/* .buttonMonitorType{
-  margin-right: 40px;
-} */
+#buttonMonitorType{
+  margin-right: 20px;
+}
 
-.buttonsMonitorType{
-  display: flex  !important;
-  flex-direction: row !important;
+#buttonsMonitorType{
+  margin-top: 40px;
+}
+
+#buttonsMonitor{
+  margin-top: 40px;
+}
+
+#buttonMonitor{
+  margin-right: 20px;
+}
+
+#Legends{
+  border-style : solid ;
+  margin-top: 20px;
+  padding: 20px;
+  width: 500px;
+}
+
+#labelLegend{
+  width: 300px;
+}
+
+#colorLegend{
+margin-right: 10px;
+padding-right: 10px;
+width: 40px;
+}
+
+#LegendTag{
+ width: 350px;
+ margin-left: 90px;
+ padding-bottom: 10px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
