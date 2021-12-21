@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import data from './Legends'
 import { useEffect, useState } from 'react'
@@ -14,7 +13,7 @@ function App() {
   const [LegendId, setLegenId] = useState(0);
   const [LegendByMonitorType, setLegendByMonitorType] = useState([]);
 
-  useEffect(async () => {
+  useEffect(() => {
     setMonitorType(data.MonitorType);
     setLegends(data.Legends)
     setMonitors(data.Monitor)
@@ -26,11 +25,13 @@ function App() {
     setLegendByMonitorType([])
     setLegenId(LegentId)
   }
-  
+
   const getLegendsByMonitorType = () => {
     let Legend = Legends.find(x => x.Id == LegendId);
-    let LegendTags = Legend.tags;
-    setLegendByMonitorType([...LegendTags])
+    let LegendTags = Legend?.tags
+    if(LegendTags?.length > 0){
+      setLegendByMonitorType([...LegendTags])
+    }
   }
 
   return (
@@ -39,7 +40,7 @@ function App() {
       <Container id="buttonsMonitorType">
         {
           monitorType.map(x => {
-            return <Button id="buttonMonitorType" variant="primary" onClick={() => getMonitorsByMonitorType(x.Id, x.LegentId)}>{x.Name}</Button>
+            return <Button key = {x.Id} id="buttonMonitorType" variant="primary" onClick={() => getMonitorsByMonitorType(x.Id, x.LegentId)}>{x.Name}</Button>
           })
 
         }
@@ -47,7 +48,7 @@ function App() {
       <Container id="buttonsMonitor">
         {
           monitorsByMonitorType.length != 0 && monitorsByMonitorType.map(x => {
-            return <Button id="buttonMonitor" variant="primary" onClick={() => { getLegendsByMonitorType() }}>{x.Name}</Button>
+            return <Button key = {x.Id} id="buttonMonitor" variant="primary" onClick={() => { getLegendsByMonitorType() }}>{x.Name}</Button>
           })
 
         }
@@ -56,7 +57,7 @@ function App() {
         LegendByMonitorType.length != 0 && <Container id="Legends">
           {
             LegendByMonitorType.map(x => {
-              return <Container id="LegendTag">
+              return <Container key = {x.Id} id="LegendTag">
                 <Row>
                   <Col id="colorLegend" style={{ backgroundColor: x.Color }}></Col>
                   <Col id="labelLegend">{x.Label}</Col>
