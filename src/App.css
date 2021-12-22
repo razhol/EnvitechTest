@@ -23,6 +23,12 @@
   margin-right: 20px;
 }
 
+#colorLegend{
+  margin-right: 10px;
+  padding-right: 10px;
+  width: 40px;
+  }
+
 #Legends{
   border-style : solid ;
   margin-top: 20px;
@@ -32,12 +38,6 @@
 
 #labelLegend{
   width: 300px;
-}
-
-#colorLegend{
-margin-right: 10px;
-padding-right: 10px;
-width: 40px;
 }
 
 #LegendTag{
